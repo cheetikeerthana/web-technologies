@@ -1,0 +1,50 @@
+<html>
+        <body bgcolor="pink" align="center">
+        <h3>Job Registration form</h3>
+        <form align="center">
+            Name:<input type="text" id="one" placeholder="enter your name"><br>
+            Email:<input type="email" id="two" placeholder="enter your mail"><br>
+            Mobile:<input type="number" id="three" placeholder="enter your mobile number"><br>
+            <input type="submit" value="submit" onclick="return validate()"> 
+        </form>
+        <script>
+            function validate(){
+            var un=document.getElementById("one");
+            var uname=un.value;
+            var mail=document.getElementById("two");
+            var email=mail.value;
+            var mn=document.getElementById("three");
+            var mob=mn.value;
+            var unre=/^[a-z A-Z]+[0-9a-zA-Z._]*$/;
+            var ere=/^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)*(\.\w{2,3})+$/;
+            var mre=/^[6-9][0-9]{9}$/;
+            if(unre.test(uname)){
+                if(ere.test(email)){
+                    if(mre.test(mob)){
+                        alert("Successfully Registered!!!!!");
+                        return true;
+                        }
+                        else{
+                        return error(mn);
+                        }
+                }
+                else{
+                    return error(mail);
+                }
+            }
+            else{
+                return error(un);
+            }
+        }
+        function error(ele){
+            alert("Invaliddddddddddd");
+            ele.style.border="2px solid red";   
+            ele.placeholder="Invalidddddddd";
+            ele.focus();
+            return false;
+        }
+        </script>
+        <h3>24881A1285</h3>
+        <H2>CH.KEERTHANA</H2>
+    </body>
+</html>
