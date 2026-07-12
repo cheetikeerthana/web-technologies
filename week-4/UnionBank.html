@@ -1,0 +1,48 @@
+<html>
+<body>
+  <style>
+    input[type=text]{
+        width:100%;
+        border:2px;
+        background-color:pink;
+        padding:15px;
+        margin:10px;
+        fontsize:20px;
+    }
+    input[type=number]{
+        width:100%;
+        border:2px;
+        background-color:lightblue;
+        padding:15px;
+        margin:10px;
+        fontsize:20px;
+    }
+    input[type=submit]{
+        border:2px;
+        background-color:silver;
+    }
+    h2{text-align:center; color:purple;}
+  </style>
+  <h2> Union  Bank EMI Calculator </h2>
+  <form>
+    Name <input type="text" placeholder="Enter your name">
+    Occupation <input type="text" placeholder="Enter your occupation">
+    Loan Amount <input type="number" placeholder="Enter loan amount" id="amount">
+    Interest Rate <input type="number" placeholder="Enter Interest Rate" id="interest">
+    Tenure in years<input type="number" placeholder="Enter tenure in years" id="tenure">
+    <input type="button" value="Calculate EMI" onclick="calculate()">
+  </form>
+  <p id="result"></p>
+  <script>
+  function calculate(){
+    var A=Number(document.getElementById("amount").value);
+    var I=Number(document.getElementById("interest").value);
+    var T=Number(document.getElementById("tenure").value)*12;
+    var mir=(I/12)/100;
+    var emi=(A * mir * (Math.pow((1+mir),T)))/(Math.pow((1+mir),T)-1);
+    document.getElementById("result").innerHTML="Your EMI is:"+emi.toFixed(2);
+    }
+  </script>
+  <h3 align="center"> 24881A1285<br> CH.Keerthana</h3>
+</body>
+</html>
